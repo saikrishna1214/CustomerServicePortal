@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/test</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.connection.pool_size">1</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hbm2ddl.auto">create-drop</property>
+		<property name="hibernate.c3p0.acquire_increment">1</property>
+		<property name="hibernate.c3p0.idle_test_period">60</property> <!-- seconds -->
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.max_size">10</property>
+		<property name="hibernate.c3p0.max_statements">50</property>
+		<property name="hibernate.c3p0.timeout">0</property> <!-- seconds -->
+		<property name="hibernate.c3p0.acquireRetryAttempts">1</property>
+		<property name="hibernate.c3p0.acquireRetryDelay">250</property>
+
+		<!-- <property name="connection.provider_class">com.zaxxer.hikari.hibernate.HikariConnectionProvider</property> 
+			<property name="hikari.dataSource.cachePrepStmts">true</property> <property 
+			name="hikari.dataSource.prepStmtCacheSize">250</property> <property name="hikari.dataSource.prepStmtCacheSqlLimit">2048</property> 
+			<property name="hikari.dataSource.useServerPrepStmts">true</property> <property 
+			name="hikari.maximumPoolSize">30</property> <property name="hikari.idleTimeout">30000</property> 
+			<property name="hibernate.hikari.dataSourceClassName">com.mysql.jdbc.jdbc2.optional.MysqlDataSource</property> 
+			<property name="hikari.dataSource.url">jdbc:mysql://localhost:3306/test</property> 
+			<property name="hikari.dataSource.user">root</property> <property name="hikari.dataSource.password">root</property> -->
+
+		<mapping class="org.imaginea.requesttracking.entity.Account" />
+		<mapping class="org.imaginea.requesttracking.entity.Contact" />
+		<mapping
+			class="org.imaginea.requesttracking.entity.ServiceRequest" />
+		<mapping class="org.imaginea.requesttracking.entity.Activity" />
+		<mapping class="org.imaginea.requesttracking.entity.Login" />
+	</session-factory>
+</hibernate-configuration>

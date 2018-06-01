@@ -1,0 +1,60 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>Homepage</servlet-name>
+  	<display-name>Homepage</display-name>
+  	<description>HomePage</description>
+  	<servlet-class>org.imaginea.requesttracking.controller.HomePage</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ContactDetails</servlet-name>
+  	<display-name>ContactDetails</display-name>
+  	<description></description>
+  	<servlet-class>org.imaginea.requesttracking.controller.ContactDetails</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ViewCustomers</servlet-name>
+  	<display-name>ViewCustomers</display-name>
+  	<description>retrieving all customers </description>
+  	<servlet-class>org.imaginea.requesttracking.controller.ViewCustomers</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ServiceRequest</servlet-name>
+  	<display-name>ServiceRequest</display-name>
+  	<description></description>
+  	<servlet-class>org.imaginea.requesttracking.controller.ServiceRequest</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CreateAccount</servlet-name>
+  	<display-name>CreateAccount</display-name>
+  	<description></description>
+  	<servlet-class>org.imaginea.requesttracking.controller.CreateAccount</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Homepage</servlet-name>
+  	<url-pattern>/Homepage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ContactDetails</servlet-name>
+  	<url-pattern>/ContactDetails</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewCustomers</servlet-name>
+  	<url-pattern>/ViewCustomers</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServiceRequest</servlet-name>
+  	<url-pattern>/ServiceRequest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CreateAccount</servlet-name>
+  	<url-pattern>/CreateAccount</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+  <welcome-file>login.html</welcome-file>
+  </welcome-file-list>
+</web-app>

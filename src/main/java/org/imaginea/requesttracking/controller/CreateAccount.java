@@ -19,9 +19,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class CreateAccount extends HttpServlet {
 	private static final long serialVersionUID = 1L;
- 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		ApplicationContext context = new ClassPathXmlApplicationContext("Spring.xml");
 		ViewAllCustomers allcustomers = (ViewAllCustomers) context.getBean("viewallcustomers");
 		ContactImpl contacts = (ContactImpl) context.getBean("createcontact");
@@ -31,11 +32,14 @@ public class CreateAccount extends HttpServlet {
 		String address2 = (String) request.getParameter("address2");
 		String city = (String) request.getParameter("city");
 		String state = (String) request.getParameter("state");
-		Account account =  allcustomers.CreateAccount(name, emailid, address1, address2, city, state);
-		String phone = (String) request.getParameter("phone");
+		int phone = Integer.parseInt((String) request.getParameter("phone"));
 		String firstname = (String) request.getParameter("firstname");
 		String lastname = (String) request.getParameter("lastname");
-		contacts.createContact(phone, firstname, lastname, account);
+		int zipcode = 0;
+		String gender = null;
+		Account account = allcustomers.CreateAccount( emailid,gender , firstname, lastname);
+		contacts.createContact(phone, address1, address2, city, state, zipcode, account);
+		response.sendRedirect("ViewCustomers");
 	}
 
 }

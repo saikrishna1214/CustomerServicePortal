@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+
 .header {
 	height: 80px;	
 	padding: 8px;
@@ -19,10 +20,13 @@
 	background-color: #8071a8;
 }
 
+
+
+
 li a {
 	text-align: center;
 	border-radius: 5px 5px 0 0;
-	font-size: 18px;
+	font-size: 16px;
 }
 
 li:hover {
@@ -49,4 +53,13 @@ li:hover {
     width:100px;
     border-radius: 50%
 }
+
+.vertical-center {
+  min-width: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-width: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
 }
+
+

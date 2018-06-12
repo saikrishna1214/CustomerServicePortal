@@ -1,8 +1,11 @@
 package org.imaginea.requesttracking.dao.impl;
 
+import java.util.Collection;
+
 import org.hibernate.Session;
 import org.imaginea.requesttracking.dao.LoginDao;
 import org.imaginea.requesttracking.entity.Login;
+import org.imaginea.requesttracking.entity.ServiceRequest;
 import org.imaginea.requesttracking.util.SessionUtils;
 import org.springframework.stereotype.Repository;
 @Repository (value="logindao")
@@ -24,5 +27,6 @@ public class LoginDaoImpl implements LoginDao {
 		Login login = (Login)session.get(Login.class, username);
 		return login;
 	}
+
 
 }

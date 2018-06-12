@@ -2,7 +2,7 @@ package org.imaginea.requesttracking.dao.impl;
 
 import org.hibernate.Session;
 import org.imaginea.requesttracking.dao.ActivityDao;
-import org.imaginea.requesttracking.entity.Activity;
+import org.imaginea.requesttracking.entity.Activities;
 import org.imaginea.requesttracking.util.SessionUtils;
 import org.springframework.stereotype.Repository;
 
@@ -23,7 +23,7 @@ public class ActivityDaoImpl implements ActivityDao{
 	 * will have data about Activity.
 	 */
 	
-	public void createActivityDao(Activity activity)
+	public void createActivityDao(Activities activity)
 	{
 		Session session = SessionUtils.getSession();
 		session.beginTransaction();

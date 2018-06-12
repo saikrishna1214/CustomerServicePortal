@@ -16,18 +16,18 @@ public class ViewAllCustomersImpl implements ViewAllCustomers {
 		return accountdao.getAllAccounts();
 	}
 
-	public Account CreateAccount(String name, String emailid, String address1, String address2, String city,String state) {
+	public Account CreateAccount( String emailid, String gender ,String firstname,String lastname) {
 		Account account = new Account();
-		account.setName(name);
 		account.setEmailid(emailid);
-		account.setAddress1(address1);
-		account.setAddress2(address2);
-		account.setCity(city);
-		account.setState(state);
+		account.setFirstname(firstname);
+		account.setLastname(lastname);
+		account.setGender(gender);
 		accountdao.createAccount(account);
 		return account;
 	}
 	
-	
+	public Account CreateAccount(int accountid) {
+		return accountdao.getAccount(accountid);
+	}
 
 }

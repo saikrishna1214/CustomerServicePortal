@@ -12,18 +12,26 @@ public class ContactImpl implements ContactService {
 	
 	@Autowired
 	private ContactDaoImpl contactdao;
+	@Autowired
+	private AccountDaoImpl accountdao;
 
-
-	public void createContact(String phone, String firstname, String lastname, Account account) {
+	public Contact createContact(int phone, String address1,String address2,String state ,String city,int Zipcode, Account account) {
 		
 		Contact contact  = new Contact();
 		contact.setPhone(phone);
+		contact.setAddress1(address1);
+		contact.setAddress2(address2);
+		contact.setCity(city);
+		contact.setState(state);
+		contact.setZipcode(Zipcode);
 		contact.setAccount(account);
-		contact.setFirstname(firstname);
-		contact.setLastname(lastname);
 		account.getContact().add(contact);
-		contactdao.createContactDao(contact);
+		return(contactdao.createContactDao(contact));
 		
 	}
+
+
+	
+	
 
 }

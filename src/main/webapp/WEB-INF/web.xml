@@ -34,6 +34,42 @@
   	<description></description>
   	<servlet-class>org.imaginea.requesttracking.controller.CreateAccount</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>CreateContact</servlet-name>
+  	<display-name>CreateContact</display-name>
+  	<description></description>
+  	<servlet-class>org.imaginea.requesttracking.controller.CreateContact</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CreateContacts</servlet-name>
+  	<display-name>CreateContacts</display-name>
+  	<description></description>
+  	<servlet-class>org.imaginea.requesttracking.controller.CreateContacts</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Logout</servlet-name>
+  	<display-name>Logout</display-name>
+  	<description></description>
+  	<servlet-class>org.imaginea.requesttracking.controller.Logout</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LoginRedirect</servlet-name>
+  	<display-name>LoginRedirect</display-name>
+  	<description></description>
+  	<servlet-class>org.imaginea.requesttracking.controller.LoginRedirect</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ViewServiceRequests</servlet-name>
+  	<display-name>ViewServiceRequests</display-name>
+  	<description></description>
+  	<servlet-class>org.imaginea.requesttracking.controller.ViewServiceRequests</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateServiceRequest</servlet-name>
+  	<display-name>UpdateServiceRequest</display-name>
+  	<description></description>
+  	<servlet-class>org.imaginea.requesttracking.controller.UpdateServiceRequest</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Homepage</servlet-name>
   	<url-pattern>/Homepage</url-pattern>
@@ -54,7 +90,31 @@
   	<servlet-name>CreateAccount</servlet-name>
   	<url-pattern>/CreateAccount</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CreateContact</servlet-name>
+  	<url-pattern>/CreateContact</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CreateContacts</servlet-name>
+  	<url-pattern>/CreateContacts</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Logout</servlet-name>
+  	<url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LoginRedirect</servlet-name>
+  	<url-pattern>/LoginRedirect</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewServiceRequests</servlet-name>
+  	<url-pattern>/ViewServiceRequests</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateServiceRequest</servlet-name>
+  	<url-pattern>/UpdateServiceRequest</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>
-  <welcome-file>login.html</welcome-file>
+  <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
 </web-app>

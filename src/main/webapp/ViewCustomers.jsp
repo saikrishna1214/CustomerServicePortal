@@ -1,3 +1,4 @@
+
 <%@page import="org.imaginea.requesttracking.entity.Contact"%>
 <%@page import="org.imaginea.requesttracking.service.ViewAllCustomers"%>
 <%@page import="java.util.List"%>
@@ -29,21 +30,22 @@
 		<h2 style="color: white;">Customer Service Portal</h2>
 	</div>
 	<nav class="nav1 navbar navbar-default">
-	<div class="col-sm-1"></div>
-	<div class="col-sm-10">
-		<ul class="nav navbar-nav">
-			<li class="active1" onclick="callViewCustomers()"><a
-				style="color: white;" href="#">View Customers</a></li>
-			<li><a style="color: white;"
-				href="http://localhost:8080/servicerequestassignment/CreateCustomerAccount.jsp">Create
-					Account</a></li>
-			<li onclick="callServiceRequest()"><a style="color: white;"
-				href="#">View Service Requests</a></li>
-			<li onclick="callActivity()"><a style="color: white;" href="#">View
-					Activity</a></li>
-		</ul>
-	</div>
-	<div class="col-sm-1"></div>
+	<ul class="nav navbar-nav">
+		<li><a style="color: white;"
+			href="http://localhost:8080/servicerequestassignment/LoginRedirect">Home</a></li>
+		<li class="active1" onclick="callViewCustomers()"><a
+			style="color: white;" href="#">View Customers</a></li>
+		<li><a style="color: white;"
+			href="http://localhost:8080/servicerequestassignment/CreateCustomerAccount.jsp">Create
+				Account</a></li>
+		<li onclick="callServiceRequests()"><a style="color: white;"
+			href="#">View Service Requests</a></li>
+	</ul>
+	<ul class="nav navbar-nav navbar-right">
+		<li onclick="logout()"><a
+			style="color: white !important; margin-right: 5px;" href="#"><span
+				class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+	</ul>
 	</nav>
 	<div class="center">
 		<h3>Customer Accounts</h3>
@@ -52,9 +54,10 @@
 				<thead style="background-color: rgb(40, 50, 100); color: white;">
 					<tr>
 						<td>AccountId</td>
-						<td>Name</td>
-						<td>City</td>
+						<td>FirstName</td>
+						<td>LastName</td>
 						<td>Email</td>
+						<td>Gender</td>
 						<td>Contact</td>
 					</tr>
 				</thead>
@@ -64,79 +67,65 @@
 							Collection<Contact> contacts = account.getContact();
 					%>
 
-					<tr id="account<%=account.getAccountid()%>">
-						<td class="accountid"><%=account.getAccountid()%></td>
-						<td class="name"><%=account.getName()%></td>
-						<td><%=account.getCity()%></td>
-						<td><%=account.getEmailid()%></td>
-						<td><input type="button" value="view contacts"
-							id="showcontacts<%=account.getAccountid()%>"
-							onclick="showContacts(<%=account.getAccountid()%>)"></td>
+					<tr>
+						<td><%=account.getAccountid()%></td>
+						<td id="firstname<%=account.getAccountid()%>"><%=account.getFirstname()%></td>
+						<td id="lastname<%=account.getAccountid()%>"><%=account.getLastname()%></td>
+						<td id="emailid<%=account.getAccountid()%>"><%=account.getEmailid()%></td>
+						<td id="gender<%=account.getAccountid()%>"><%=account.getGender() %></td>
+						<td><button data-target="#<%=account.getAccountid()%>"
+								type="button" data-toggle="collapse">
+								<span class="glyphicon glyphicon-eye-open"></span>
+							</button></td>
 					</tr>
-					<tr style="display: none" id="<%=account.getAccountid()%>">
-						<td colspan="5">
-							<table style="margin: 0px;" class="table">
-								<thead>
-									<tr>
-										<td>Select Contact</td>
-										<td>contactId</td>
-										<td>phone</td>
-										<td>first name</td>
-										<td>last name</td>
-									</tr>
-								</thead>
-								<tbody>
-									<form>
+					<tr>
+						<td colspan="6">
+							<div class="collapse" id="<%=account.getAccountid()%>">
+								<table style="margin: 0; text-align: center;" class="table">
+									<thead>
+										<tr>
+											<td>AccountId</td>
+											<td>contactId</td>
+											<td>phone</td>
+											<td>Address1</td>
+											<td>Address2</td>
+											<td>City</td>
+											<td>State</td>
+											<td>ZipCode</td>
+											<td>Generate Issue</td>
+										</tr>
+									</thead>
+									<tbody>
 										<%
 											for (Contact contact : contacts) {
 										%>
 
-										<tr id="contact<%=contact.getContactid()%>">
-											<td><input type="radio"
-												value="<%=contact.getContactid()%>" name="optradio"></td>
+										<tr>
+											<td id="account<%=contact.getContactid()%>"><%=account.getAccountid()%></td>
 											<td><%=contact.getContactid()%></td>
-											<td><%=contact.getPhone()%></td>
-											<td><%=contact.getFirstname()%></td>
-											<td><%=contact.getLastname()%></td>
+											<td id="phone<%=contact.getContactid()%>"><%=contact.getPhone()%></td>
+											<td id="address1<%=contact.getContactid()%>"><%=contact.getAddress1()%></td>
+											<td id="address2<%=contact.getContactid()%>"><%=contact.getAddress2()%></td>
+											<td id="city<%=contact.getContactid()%>"><%=contact.getCity()%></td>
+											<td id="state<%=contact.getContactid()%>"><%=contact.getState()%></td>
+											<td id="zipcode<%=contact.getContactid()%>"><%=contact.getZipcode()%></td>
+											<td><button type="button"
+													data-id="<%=contact.getContactid()%>" data-toggle="modal"
+													data-target="#myModal">
+													<span class="glyphicon glyphicon-plus-sign"></span>
+												</button></td>
 										</tr>
 										<%
 											}
 										%>
 										<tr>
-											<td colspan="2" style="text-align: right;"><input
-												type="button" value="generate issue"
-												onclick="generateIssue(<%=account.getAccountid()%>)"></td>
-											<td colspan="3"><button type="button"
-													data-toggle="modal" data-target="#myModal">Add New
-													Contact</button> <!-- Modal -->
-												<div class="modal fade" id="myModal" role="dialog">
-													<div class="modal-dialog">
-														<!-- Modal content-->
-														<div class="modal-content">
-															<div class="modal-header">
-																<button type="button" class="close" data-dismiss="modal">&times;</button>
-																<h4 class="modal-title">Contact Info</h4>
-															</div>
-															<div class="modal-body">
-																<img class="contactimage" alt="*" src="user1a.png">
-																<div class="jumbotron">
-																<div class="form-horizontal">
-																<label>First Name </label>
-																<input class="form-control" type="text">
-																<label>Last Name </label>
-																<input class="form-control" type="text">
-																<label>Phone </label>
-																<input class="form-control" type="number"><br>
-																</div></div>
-																<button type="button" class="btn btn-success">Submit</button>
-																</div>
-														</div>
-													</div>
-												</div></td>
+											<td colspan="9"><button type="button" data-id="<%=account.getAccountid() %>"
+													data-toggle="modal" data-target="#myContactModal">Add
+													New Contact</button>
 										</tr>
-									</form>
-								</tbody>
-							</table>
+									</tbody>
+								</table>
+							</div>
 						</td>
 					</tr>
 					<%
@@ -145,44 +134,177 @@
 				</tbody>
 			</table>
 		</form>
+		<div class="modal fade bd-example-modal-lg" id="myModal" role="dialog">
+			<div class="modal-dialog modal-lg">
+
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Service Request</h4>
+					</div>
+					<div class="modal-body">
+						<div class="jumbotron">
+							<form action="ServiceRequest" method="post">
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group row">
+											<span class="col-sm-3">Account Id</span>
+											<div class="col-sm-9">
+												<input name="accountid" type="number" id="serviceaccountid"
+													class="form-control" readonly />
+											</div>
+										</div>
+										<div class="form-group row">
+											<span class="col-sm-3">Name</span>
+											<div class="col-sm-9">
+												<input name="name" id="servicename" type="text"
+													class="form-control" readonly/>
+											</div>
+										</div>
+										<div class="form-group row">
+											<span class="col-sm-3">Email id</span>
+											<div class="col-sm-9">
+												<input name="emailid" id="serviceemailid" type="email"
+													class="form-control" readonly/>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6" style="border-left: 1px dashed black;">
+
+										<div class="form-group row">
+											<span class="col-sm-2">Contact Id</span>
+											<div class="col-sm-10">
+												<input name="contactid" id="servicecontactid" type="text"
+													class="form-control" readonly/>
+											</div>
+										</div>
+										<div class="form-group row">
+											<span class="col-sm-2">Title</span>
+											<div class="col-sm-10">
+												<input name="title" id="title" type="text"
+													class="form-control" />
+											</div>
+										</div>
+										<div class="form-group row">
+											<span class="col-sm-2">Description</span>
+											<div class="col-sm-10">
+												<input name="description" type="text" class="form-control" />
+											</div>
+										</div>
+									</div>
+								</div>
+						</div>
+						<button type="submit" class="btn btn-success">Generate
+							Issue</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade bd-example-modal-lg" id="myContactModal"
+			role="dialog">
+			<div class="modal-dialog modal-lg">
+
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Contact Info</h4>
+					</div>
+					<div class="modal-body">
+						<img class="contactimage" alt="*" src="user1a.png">
+						<div class="jumbotron">
+							<form action="CreateContacts" method="post">
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group row">
+											<span class="col-sm-3">Account Id</span>
+											<div class="col-sm-9">
+												<input name="accountid" type="number" id="contactaccountid"
+													class="form-control" readonly />
+											</div>
+										</div>
+										<div class="form-group row">
+											<span class="col-sm-3">Phone</span>
+											<div class="col-sm-9">
+												<input name="phone" id="phone" type="number"
+													class="form-control" />
+											</div>
+										</div>
+										<div class="form-group row">
+											<span class="col-sm-3">Address1</span>
+											<div class="col-sm-9">
+												<input name="address1" id="address1" type="text"
+													class="form-control" />
+											</div>
+										</div>
+										<div class="form-group row">
+											<span class="col-sm-3">Address2</span>
+											<div class="col-sm-9">
+												<input name="address2" id="address2" type="text"
+													class="form-control" />
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6" style="border-left: 1px dashed black;">
+
+										<div class="form-group row">
+											<span class="col-sm-2">City</span>
+											<div class="col-sm-10">
+												<input name="city" id="city" type="text"
+													class="form-control" />
+											</div>
+										</div>
+										<div class="form-group row">
+											<span class="col-sm-2">State</span>
+											<div class="col-sm-10">
+												<input name="state" id="state" type="text"
+													class="form-control" />
+											</div>
+										</div>
+										<div class="form-group row">
+											<span class="col-sm-2">ZipCode</span>
+											<div class="col-sm-10">
+												<input name="zipcode" id="zipcode" type="number" class="form-control" />
+											</div>
+										</div>
+									</div>
+								</div>
+								<button type="submit" class="btn btn-success">Add Contact</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<script>
-		function showContacts(id) {
-			if(document.getElementById("showcontacts"+id).value=="view contacts")
-				{
-					var table = document.getElementById(id);
-					table.style.display = "table-row";
-					document.getElementById("showcontacts"+id).value="hide contacts";
-				}
-			else
-				{
-				document.getElementById(id).style.display = "none";
-				document.getElementById("showcontacts"+id).value="view contacts";
-				}
-		}
+		
+		
+		$("#myModal").on('show.bs.modal',function(e) {
+							var getRow = $(e.relatedTarget).data('id');
+							var a = document.getElementById('account' + getRow).innerHTML;
+							$("#serviceaccountid").val(document.getElementById('account'+getRow).innerHTML);
+							$("#servicename").val(document.getElementById('firstname'+a).innerHTML);
+							$("#serviceemailid").val(document.getElementById('emailid'+a).innerHTML);
+							$("#servicecontactid").val(getRow);
+						});
+		$("#myContactModal").on('show.bs.modal',function(e){
+			var getRow = $(e.relatedTarget).data('id');
+			$("#contactaccountid").val(getRow);
+		});
 
-		function generateIssue(accountinfo) {
-				var accountrow = document.getElementById("account"+accountinfo);
-				var accountcells = accountrow.getElementsByTagName("td");
-				var accountid = accountcells[0].innerText;
-				var name = accountcells[1].innerText;
-				var radiovalue = $("input:radio[name='optradio']:checked").val();
-				var contactrow = document.getElementById("contact"+radiovalue);
-				var contactcells = contactrow.getElementsByTagName("td");
-				var contactid = contactcells[1].innerText;
-				var param = "?accountId=" + accountid + "&name=" + name +"&contactId=" + contactid;	
-				window.open("http://localhost:8080/servicerequestassignment/CreateServiceRequest.jsp"+param,"_parent")
-		 }
-		
 		function callViewCustomers() {
-			document.location.href="ViewCustomers";
+			document.location.href = "ViewCustomers";
 		}
-		
+		function callServiceRequests() {
+			document.location.href = "ViewServiceRequests";
+		}
 		function modalDisplay(id) {
-			
+
 			var modal = document.getElementById('myModal');
-			modal.style.display="block";
+			modal.style.display = "block";
 		}
 	</script>
 </body>
 </html>
+

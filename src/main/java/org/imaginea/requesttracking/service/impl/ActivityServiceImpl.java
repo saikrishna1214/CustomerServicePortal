@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.imaginea.requesttracking.dao.impl.ActivityDaoImpl;
-import org.imaginea.requesttracking.entity.Activity;
+import org.imaginea.requesttracking.entity.Activities;
 import org.imaginea.requesttracking.entity.ServiceRequest;
 import org.imaginea.requesttracking.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +18,13 @@ public class ActivityServiceImpl implements ActivityService {
 	
 	public void createActivity(ServiceRequest serviceRequest) {
 
-/*		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-		LocalDateTime now = LocalDateTime.now();*/
-
-		Activity activity = new Activity();
+		Activities activity = new Activities();
 		activity.setServicerequest(serviceRequest);
-		activity.setCreatedate("date");
-/*		serviceRequest.getActivity().add(activity);*/
-
-
+		activity.setUpdatedDescription(serviceRequest.getDescription());
+		activity.setStatusUpdate(serviceRequest.getStatus());
+		activity.setUpdateddate(java.time.LocalDate.now());
+		serviceRequest.getActivity().add(activity);
+		activityDao.createActivityDao(activity);
 	}
 
 }

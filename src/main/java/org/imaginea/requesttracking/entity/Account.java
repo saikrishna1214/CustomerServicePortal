@@ -26,9 +26,6 @@ public class Account {
 	@GeneratedValue
 	private int accountid;
 	
-	@Column(name = "NAME")
-	private String name;
-	
 	@Column(name="EMAILID")
 	private String emailid;
 	
@@ -40,20 +37,38 @@ public class Account {
 		this.emailid = emailid;
 	}
 
-	@Column(name = "ADDRESS1")
-	private String address1;
+	@Column(name="GENDER")
+	private String gender;
 	
-	@Column(name = "ADDRESS2")
-	private String address2;
+	@Column (name="LASTNAME")
+	private String lastname;
 	
-	@Column(name = "CITY")
-	private String city;
-	
-	@Column(name = "STATE")
-	private String state;
-	
-	@Column(name = "ZIPCODE")
-	private int zipcode;
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	@Column (name="FIRSTNAME")
+	private String firstname;
 
 	@OneToMany(mappedBy="account")
 	private Collection<ServiceRequest> servicereq = new ArrayList<ServiceRequest>();
@@ -102,94 +117,4 @@ public class Account {
 		this.accountid = accountid;
 	}
 
-	/**
-	 * gives the name of Account holder.
-	 * @return name of String data type 
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * sets name for a Account
-	 * @param name of String type will have
-	 * a name.
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/**
-	 * gives address which of String type
-	 * @return address1 of present account
-	 */
-	public String getAddress1() {
-		return address1;
-	}
-
-	/**
-	 * sets address of account
-	 * @param address1 will have addresss of present account.
-	 */
-	public void setAddress1(String address1) {
-		this.address1 = address1;
-	}
-
-	public String getAddress2() {
-		return address2;
-	}
-
-	public void setAddress2(String address2) {
-		this.address2 = address2;
-	}
-	
-	/**
-	 * gives city of present account
-	 * @return city of String type.
-	 */
-
-	public String getCity() {
-		return city;
-	}
-
-	/**
-	 * sets city of present account
-	 * @param city holds name of city of String type. 
-	 */
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	/**
-	 * gives state of present account
-	 * @return state of string type
-	 */
-	public String getState() {
-		return state;
-	}
-
-	/**
-	 * sets state of present account object
-	 * @param state holds state name of String type.
-	 */
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	/**
-	 * returns Zipcode present account object 
-	 * @return zipcode of string type
-	 */
-	public int getZipcode() {
-		return zipcode;
-	}
-	
-	/**
-	 * sets zip code for present object of account type
-	 * @param zipcode2 holds zipcode value of String type.
-	 */
-
-	public void setZipcode(int zipcode2) {
-		this.zipcode = zipcode2;
-	}
 }

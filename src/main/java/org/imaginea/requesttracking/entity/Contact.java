@@ -22,12 +22,65 @@ public class Contact {
 	@Column (name="CONTATCID")
 	@GeneratedValue
 	private int contactid;
-	@Column (name="LASTNAME")
-	private String lastname;
-	@Column (name="FIRSTNAME")
-	private String firstname;
+
 	@Column (name="PHONE")
-	private String phone;
+	private int phone;
+	
+	@Column(name = "ADDRESS1")
+	private String address1;
+	
+	public String getAddress1() {
+		return address1;
+	}
+
+	public void setAddress1(String address1) {
+		this.address1 = address1;
+	}
+
+	public String getAddress2() {
+		return address2;
+	}
+
+	public void setAddress2(String address2) {
+		this.address2 = address2;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public int getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(int zipcode) {
+		this.zipcode = zipcode;
+	}
+
+	@Column(name = "ADDRESS2")
+	private String address2;
+	
+	@Column(name = "CITY")
+	private String city;
+	
+	@Column(name = "STATE")
+	private String state;
+	
+	@Column(name = "ZIPCODE")
+	private int zipcode;
+	
 	@ManyToOne
 	@JoinColumn(name="ACCOUNTID")
 	private Account account;
@@ -67,51 +120,19 @@ public class Contact {
 	}
 	
 	/**
-	 * gives last name of present contact
-	 * @return last name of String type.
-	 */
-	public String getLastname() {
-		return lastname;
-	}
-	
-	/**
-	 * sets last name for present Contact object  
-	 * @param lastname contains last name of String type.
-	 */
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
-	
-	/**
-	 * gives first name of present contact
-	 * @return first name of String type.
-	 */
-	public String getFirstname() {
-		return firstname;
-	}
-	
-	/**
-	 * sets first name for present Contact object  
-	 * @param first name contains last name of String type.
-	 */
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-	
-	/**
 	 * gives phone number of present contact
 	 * @return phone number of String type.
 	 */
-	public String getPhone() {
+	public int getPhone() {
 		return phone;
 	}
 	
 	/**
 	 * sets phone number for present Contact object  
-	 * @param phone number contains last name of String type.
+	 * @param phone2 number contains last name of String type.
 	 */
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setPhone(int phone2) {
+		this.phone = phone2;
 	}
 	
 	/**

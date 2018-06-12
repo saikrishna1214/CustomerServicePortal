@@ -1,5 +1,8 @@
 package org.imaginea.requesttracking.service;
 
+import java.util.Collection;
+
+import org.imaginea.requesttracking.entity.ServiceRequest;
 import org.springframework.context.ApplicationContext;
 
 /**
@@ -20,5 +23,10 @@ public interface ServiceRequestService {
 	 *  @param contaxt gives ApplicationContext object to it
 	 */
 		
-	public void createServiceRequest(int accountid,int contactid,String title,String description);
+	public ServiceRequest createServiceRequest(int accountid,int contactid,String title,String description,String email);
+	
+	public Collection<ServiceRequest> getAllServiceRequests();
+	
+	public ServiceRequest updateServiceRequest(int srnumber,String status,String description,String email);
+
 }

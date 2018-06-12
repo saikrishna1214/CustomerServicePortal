@@ -1,6 +1,7 @@
 package org.imaginea.requesttracking.service;
 
 import org.imaginea.requesttracking.entity.Account;
+import org.imaginea.requesttracking.entity.Contact;
 
 /**
  * provides services of contact entity and
@@ -18,6 +19,6 @@ public interface ContactService {
 	 * which opens a session for it 
 	 */
 	
-	public void createContact(String phone,String firstname,String last,Account account);
-
+	public Contact createContact(int phone, String address1,String address2,String state ,String city,int Zipcode, Account account);
+	
 }

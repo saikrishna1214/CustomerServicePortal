@@ -8,5 +8,7 @@ public interface ViewAllCustomers {
 	
 	public List<Account> getAllCustomers();
 
-	public Account CreateAccount(String name,String emailid,String address1,String address2,String city,String state);
+	public Account CreateAccount(String emailid, String gender ,String lastname,String firstname);
+	
+	public Account CreateAccount(int accountid);
 }

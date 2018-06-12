@@ -22,13 +22,14 @@ public class ContactDaoImpl implements ContactDao{
 	 * @param contact
 	 */
 	
-	public void createContactDao(Contact contact)
+	public Contact createContactDao(Contact contact)
 	{
 		Session session = SessionUtils.getSession();
 		session.beginTransaction();
 		session.save(contact);
 		session.getTransaction().commit();
 		SessionUtils.closeSession(session);
+		return contact;
 	}
 	
 

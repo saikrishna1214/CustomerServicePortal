@@ -2,7 +2,7 @@ package org.imaginea.requesttracking.service;
 
 import java.util.List;
 
-import org.imaginea.requesttracking.entity.Activity;
+import org.imaginea.requesttracking.entity.Activities;
 import org.imaginea.requesttracking.entity.ServiceRequest;
 
 /**

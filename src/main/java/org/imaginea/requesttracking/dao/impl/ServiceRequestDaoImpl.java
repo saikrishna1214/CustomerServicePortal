@@ -1,7 +1,11 @@
 package org.imaginea.requesttracking.dao.impl;
 
+import java.util.Collection;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.imaginea.requesttracking.dao.ServiceRequestDao;
+import org.imaginea.requesttracking.entity.Account;
 import org.imaginea.requesttracking.entity.ServiceRequest;
 import org.imaginea.requesttracking.util.SessionUtils;
 import org.springframework.stereotype.Repository;
@@ -37,11 +41,26 @@ public class ServiceRequestDaoImpl implements ServiceRequestDao {
 	 * @return ServiceRquest object of given service number 
 	 */
 	
-	public ServiceRequest getServiceRequest(String srnumber)
+	public void updateServiceRequest(ServiceRequest serviceReq) {
+		Session session = SessionUtils.getSession();
+		session.beginTransaction();
+		session.merge(serviceReq);
+		session.getTransaction().commit();	
+		SessionUtils.closeSession(session);
+	}
+	
+	public ServiceRequest getServiceRequest(int srnumber)
 	{
 		Session session = SessionUtils.getSession();
 		session.beginTransaction();
 		return (ServiceRequest) session.get(ServiceRequest.class, srnumber);
+	}
+
+	public Collection<ServiceRequest> getAllServiceRequests() {
+		Session session = SessionUtils.getSession();
+		session.beginTransaction();
+		Collection<ServiceRequest> servicerequests = session.createQuery("from ServiceRequest").list();
+		return servicerequests;
 	}
 
 }

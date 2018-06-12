@@ -1,6 +1,7 @@
 
 package org.imaginea.requesttracking.entity;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -43,7 +44,7 @@ public class ServiceRequest {
 	private String status;
 
 	@Column(name = "OPENDATE")
-	private Date opendate;
+	private LocalDate opendate;
 
 	@Column(name = "CLOSEDATE")
 	private Date closedate;
@@ -63,16 +64,28 @@ public class ServiceRequest {
 	public void setAccount(Account account) {
 		this.account = account;
 	}
+	
+	@ManyToOne
+	@JoinColumn(name="USERNAME")
+	private Login employee;
+
+	public Login getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Login employee) {
+		this.employee = employee;
+	}
 
 	@OneToMany(mappedBy = "servicerequest", cascade = CascadeType.PERSIST)
-	private Collection<Activity> activity = new ArrayList<Activity>();
+	private Collection<Activities> activity = new ArrayList<Activities>();
 
 	/**
 	 * gives collection of activities
 	 * 
 	 * @return activity of Collection type.
 	 */
-	public Collection<Activity> getActivity() {
+	public Collection<Activities> getActivity() {
 		return activity;
 	}
 
@@ -82,7 +95,7 @@ public class ServiceRequest {
 	 * @param activity
 	 *            contains object of Collection type.
 	 */
-	public void setActivity(Collection<Activity> activity) {
+	public void setActivity(Collection<Activities> activity) {
 		this.activity = activity;
 	}
 
@@ -186,18 +199,18 @@ public class ServiceRequest {
 	 * 
 	 * @return opendate of Date type.
 	 */
-	public Date getOpendate() {
+	public LocalDate getOpendate() {
 		return opendate;
 	}
 
 	/**
 	 * sets open date of present Service Request object
 	 * 
-	 * @param opendate
+	 * @param localDate
 	 *            contains Service number of Date type.
 	 */
-	public void setOpendate(Date opendate) {
-		this.opendate = opendate;
+	public void setOpendate(LocalDate localDate) {
+		this.opendate = localDate;
 	}
 
 	/**

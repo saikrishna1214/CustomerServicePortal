@@ -13,10 +13,10 @@
 		<bean id="createcontact" class="org.imaginea.requesttracking.service.impl.ContactImpl"/>
 		<bean id="servicerequest" class="org.imaginea.requesttracking.service.impl.ServiceRequestImpl"/>
 		<bean id="viewallcustomers" class="org.imaginea.requesttracking.service.impl.ViewAllCustomersImpl"/>
-				
+		<bean id="activity" class="org.imaginea.requesttracking.service.impl.ActivityServiceImpl"></bean>
+		<bean id="homepagedetails" class="org.imaginea.requesttracking.service.impl.HomepageDetailsImpl"></bean>	
 		
 		<context:component-scan base-package="org.imaginea.requesttracking.dao" />
-		<context:component-scan base-package="org.imaginea.requesttracking.service" />
 		<context:component-scan base-package="org.imaginea.servicerequestassignment"></context:component-scan>
 </beans>
 

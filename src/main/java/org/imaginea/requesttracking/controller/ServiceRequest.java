@@ -1,11 +1,14 @@
 package org.imaginea.requesttracking.controller;
 
+
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.imaginea.requesttracking.service.impl.ActivityServiceImpl;
 import org.imaginea.requesttracking.service.impl.ServiceRequestImpl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -27,8 +30,11 @@ public class ServiceRequest extends HttpServlet {
 	int contactid = Integer.parseInt(contactidvalue);
 	ApplicationContext context = new ClassPathXmlApplicationContext("Spring.xml");
 	ServiceRequestImpl getservice = (ServiceRequestImpl) context.getBean("servicerequest");
-	getservice.createServiceRequest(accountid, contactid, title, description);
-	response.sendRedirect("ViewCustomers.jsp");
+	ActivityServiceImpl activityServiceImpl = (ActivityServiceImpl) context.getBean("activity");
+	String employee = (String) request.getSession().getAttribute("email");
+	org.imaginea.requesttracking.entity.ServiceRequest serviceRequest =  getservice.createServiceRequest(accountid, contactid, title, description,employee);
+	activityServiceImpl.createActivity(serviceRequest);
+	response.sendRedirect("ViewServiceRequests");
 	}
 
 }

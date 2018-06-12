@@ -3,7 +3,10 @@
  */
 package org.imaginea.requesttracking.dao;
 
+import java.util.Collection;
+
 import org.imaginea.requesttracking.entity.Login;
+import org.imaginea.requesttracking.entity.ServiceRequest;
 
 /**
  * @author saikrishnak

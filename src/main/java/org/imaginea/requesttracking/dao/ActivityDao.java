@@ -1,9 +1,9 @@
 package org.imaginea.requesttracking.dao;
 
-import org.imaginea.requesttracking.entity.Activity;
+import org.imaginea.requesttracking.entity.Activities;
 
 public interface ActivityDao {
 	
-	public void createActivityDao(Activity activity);
+	public void createActivityDao(Activities activity);
 
 }

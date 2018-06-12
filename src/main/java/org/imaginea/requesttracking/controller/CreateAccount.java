@@ -35,8 +35,8 @@ public class CreateAccount extends HttpServlet {
 		int phone = Integer.parseInt((String) request.getParameter("phone"));
 		String firstname = (String) request.getParameter("firstname");
 		String lastname = (String) request.getParameter("lastname");
-		int zipcode = 0;
-		String gender = null;
+		int zipcode = Integer.parseInt((String) request.getParameter("zipcode"));
+		String gender = request.getParameter("gender");
 		Account account = allcustomers.CreateAccount( emailid,gender , firstname, lastname);
 		contacts.createContact(phone, address1, address2, city, state, zipcode, account);
 		response.sendRedirect("ViewCustomers");

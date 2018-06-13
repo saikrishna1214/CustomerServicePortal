@@ -62,5 +62,13 @@ public class ServiceRequestDaoImpl implements ServiceRequestDao {
 		Collection<ServiceRequest> servicerequests = session.createQuery("from ServiceRequest").list();
 		return servicerequests;
 	}
+	
+	public Collection<ServiceRequest> getUserServiceRequests(String emailid)
+	{
+		Session session = SessionUtils.getSession();
+		session.beginTransaction();
+		Collection<ServiceRequest> servicerequests = session.createQuery("from ServiceRequest where USERNAME=" +"'" + emailid + "'").list();
+		return servicerequests;
+	}
 
 }

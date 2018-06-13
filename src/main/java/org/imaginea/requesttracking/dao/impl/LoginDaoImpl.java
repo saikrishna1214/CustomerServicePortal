@@ -27,6 +27,4 @@ public class LoginDaoImpl implements LoginDao {
 		Login login = (Login)session.get(Login.class, username);
 		return login;
 	}
-
-
 }

@@ -14,4 +14,6 @@ public interface ServiceRequestDao {
 	
 	public Collection<ServiceRequest> getAllServiceRequests();
 	
+	public Collection<ServiceRequest> getUserServiceRequests(String emailid);
+	
 }

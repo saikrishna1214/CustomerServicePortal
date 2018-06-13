@@ -32,7 +32,7 @@ public class CreateAccount extends HttpServlet {
 		String address2 = (String) request.getParameter("address2");
 		String city = (String) request.getParameter("city");
 		String state = (String) request.getParameter("state");
-		int phone = Integer.parseInt((String) request.getParameter("phone"));
+		int phone = Integer.parseInt(request.getParameter("phone"));
 		String firstname = (String) request.getParameter("firstname");
 		String lastname = (String) request.getParameter("lastname");
 		int zipcode = Integer.parseInt((String) request.getParameter("zipcode"));

@@ -3,6 +3,12 @@
 <%@page import="java.util.Collection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%
+	if(request.getSession().getAttribute("email")==null)
+	{
+		response.sendRedirect("login.jsp");
+	}
+	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -68,13 +74,6 @@
 							<div class="col-sm-9">
 								<input class="form-control" name="accountid" type="number"
 									value="<%=accountid%>" >
-							</div>
-						</div>
-						<div class="form-group row">
-							<span class="col-sm-3">Name</span>
-							<div class="col-sm-9">
-								<input class="form-control" name="name" type="text"
-									value="<%=name%>" >
 							</div>
 						</div>
 						<div class="form-group row">

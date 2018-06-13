@@ -6,6 +6,11 @@
 <%@page import="java.util.Collection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	if (request.getSession().getAttribute("email") == null) {
+		response.sendRedirect("login.jsp");
+	}
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -62,6 +67,11 @@
 					</tr>
 				</thead>
 				<tbody>
+					<tr>
+						<td colspan="6">
+							<div class="collapse"></div>
+						</td>
+					</tr>
 					<%
 						for (Account account : accounts) {
 							Collection<Contact> contacts = account.getContact();
@@ -72,9 +82,11 @@
 						<td id="firstname<%=account.getAccountid()%>"><%=account.getFirstname()%></td>
 						<td id="lastname<%=account.getAccountid()%>"><%=account.getLastname()%></td>
 						<td id="emailid<%=account.getAccountid()%>"><%=account.getEmailid()%></td>
-						<td id="gender<%=account.getAccountid()%>"><%=account.getGender() %></td>
+						<td id="gender<%=account.getAccountid()%>"><%=account.getGender()%></td>
 						<td><button data-target="#<%=account.getAccountid()%>"
-								type="button" data-toggle="collapse">
+								type="button" data-toggle="collapse"
+								id="eye<%=account.getAccountid()%>"
+								onclick="buttonToggle(<%=account.getAccountid()%>)">
 								<span class="glyphicon glyphicon-eye-open"></span>
 							</button></td>
 					</tr>
@@ -112,15 +124,16 @@
 											<td><button type="button"
 													data-id="<%=contact.getContactid()%>" data-toggle="modal"
 													data-target="#myModal">
-													<span class="glyphicon glyphicon-plus-sign"></span>
+													<span class="glyphicon glyphicon-plus-sign" style="color: green;"></span>
 												</button></td>
 										</tr>
 										<%
 											}
 										%>
 										<tr>
-											<td colspan="9"><button type="button" data-id="<%=account.getAccountid() %>"
-													data-toggle="modal" data-target="#myContactModal">Add
+											<td colspan="9"><button type="button"
+													data-id="<%=account.getAccountid()%>" data-toggle="modal"
+													data-target="#myContactModal" class="btn btn-primary">Add
 													New Contact</button>
 										</tr>
 									</tbody>
@@ -144,7 +157,7 @@
 					</div>
 					<div class="modal-body">
 						<div class="jumbotron">
-							<form action="ServiceRequest" method="post">
+							<form action="ServiceRequest" method="post" style="padding: 8px;">
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="form-group row">
@@ -158,14 +171,14 @@
 											<span class="col-sm-3">Name</span>
 											<div class="col-sm-9">
 												<input name="name" id="servicename" type="text"
-													class="form-control" readonly/>
+													class="form-control" readonly />
 											</div>
 										</div>
 										<div class="form-group row">
 											<span class="col-sm-3">Email id</span>
 											<div class="col-sm-9">
 												<input name="emailid" id="serviceemailid" type="email"
-													class="form-control" readonly/>
+													class="form-control" readonly />
 											</div>
 										</div>
 									</div>
@@ -175,7 +188,7 @@
 											<span class="col-sm-2">Contact Id</span>
 											<div class="col-sm-10">
 												<input name="contactid" id="servicecontactid" type="text"
-													class="form-control" readonly/>
+													class="form-control" readonly />
 											</div>
 										</div>
 										<div class="form-group row">
@@ -213,7 +226,7 @@
 					<div class="modal-body">
 						<img class="contactimage" alt="*" src="user1a.png">
 						<div class="jumbotron">
-							<form action="CreateContacts" method="post">
+							<form action="CreateContacts" method="post" style="padding: 8px;">
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="form-group row">
@@ -264,12 +277,17 @@
 										<div class="form-group row">
 											<span class="col-sm-2">ZipCode</span>
 											<div class="col-sm-10">
-												<input name="zipcode" id="zipcode" type="number" class="form-control" />
+												<input name="zipcode" id="zipcode" type="number"
+													class="form-control" />
 											</div>
 										</div>
 									</div>
 								</div>
-								<button type="submit" class="btn btn-success">Add Contact</button>
+								<div style="float: right;" class="btn-group">
+									<button name="button" value="1" type="submit"
+										class="btn btn-success">Generate Issue</button>
+				
+								</div>
 							</form>
 						</div>
 					</div>
@@ -292,7 +310,12 @@
 			var getRow = $(e.relatedTarget).data('id');
 			$("#contactaccountid").val(getRow);
 		});
-
+		
+		function buttonToggle(id) {
+		    $("#eye"+id).find('span').toggleClass('glyphicon-eye-open').toggleClass('glyphicon-eye-close');
+		}
+		
+		
 		function callViewCustomers() {
 			document.location.href = "ViewCustomers";
 		}

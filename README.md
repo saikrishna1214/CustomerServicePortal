@@ -5,14 +5,15 @@ Creates Accounts,contacts and ServiceRequests for a user. An employee will have 
 
 ### Prerequisites
 
-1. Install java and tomcat. make sure both versions are compaitable with each other. 
+1. Install java and tomcat. make sure both versions are compaitable with each other. check compaitable versions [here](http://tomcat.apache.org/whichversion.html).
 
 ```
 ex: Tomcat v9.0.8 is supported by java8 and later versions.
 ```
-   you can see those compaitable versions [here](http://tomcat.apache.org/whichversion.html).
 
-2. * create a hibernate configuration file and place all required properties in it. 
+2. Install Mysql.
+
+3. * create a hibernate configuration file and place all required properties in it. 
 
    * see [hibernate.cfg.xml](https://github.com/saikrishna1214/CustomerServicePortal/blob/master/src/main/resources/hibernate.cfg.xml) for reference. Replace required propeties(ex: database name and password) and their values according to your database properties.
 
@@ -35,9 +36,33 @@ replace 8 with newer versions.
 
 3. you can start and stop the server from IDE like Eclipse or you can do it from terminal.
 
-## Deployment
+### Installing Mysql
 
-Add additional notes about how to deploy this on a live system
+Download and Install Mysql from [here](https://www.mysql.com/downloads).
+
+## Steps to build Application
+
+* Download source code from Git repository and extract it.
+
+* Open terminal from this folder and run "mvn install" to build a war file.
+
+## Steps to run Application
+
+* Upload the war file of the application in the specified location.
+
+* Open browser and Enter [http://localhost:8080]
+
+* Tomcat Home page will be displayed.
+
+* Click on teh project, you will be directed to login page of application.
+
+* Enter some random values for username and password.
+
+* Again login page is dsplayed.
+
+* Now Insert some values for username and password in Login table of your database manually.
+
+* Enter those values in Login page then you will be redirected to Home page
 
 ## Built With
 

@@ -14,9 +14,8 @@ you can see those compaitable versions [here](http://tomcat.apache.org/whichvers
 
 2.  create a hibernate configuration file and place all required properties in it. 
 
-```
     see [hibernate.cfg.xml](https://github.com/saikrishna1214/CustomerServicePortal/blob/master/src/main/resources/hibernate.cfg.xml) for reference. Replace required propeties(ex: database name and password) and their values according to your database properties.
-```
+
     replace  CustomerServicePortal/src/main/resources/hibernate.cfg.xml with newly created file.
 
 ### Installing java

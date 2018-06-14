@@ -10,13 +10,13 @@ Creates Accounts,contacts and ServiceRequests for a user. An employee will have 
 ```
 ex: Tomcat v9.0.8 is supported by java8 and later versions.
 ```
-you can see those compaitable versions [here](http://tomcat.apache.org/whichversion.html).
+   you can see those compaitable versions [here](http://tomcat.apache.org/whichversion.html).
 
-2.  create a hibernate configuration file and place all required properties in it. 
+2. * create a hibernate configuration file and place all required properties in it. 
 
-    see [hibernate.cfg.xml](https://github.com/saikrishna1214/CustomerServicePortal/blob/master/src/main/resources/hibernate.cfg.xml) for reference. Replace required propeties(ex: database name and password) and their values according to your database properties.
+   * see [hibernate.cfg.xml](https://github.com/saikrishna1214/CustomerServicePortal/blob/master/src/main/resources/hibernate.cfg.xml) for reference. Replace required propeties(ex: database name and password) and their values according to your database properties.
 
-    replace  CustomerServicePortal/src/main/resources/hibernate.cfg.xml with newly created file.
+   * replace  CustomerServicePortal/src/main/resources/hibernate.cfg.xml with newly created file.
 
 ### Installing java
 

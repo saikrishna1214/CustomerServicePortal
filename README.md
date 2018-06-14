@@ -10,9 +10,8 @@ make sure both versions are compaitable with each other.
 
 ```
 ex: Tomcat v9.0.8 is supported by java8 and later versions.
-
-you can those compaitable versions here [which version?](http://tomcat.apache.org/whichversion.html)
 ```
+you can those compaitable versions here [which version?](http://tomcat.apache.org/whichversion.html)
 
 ### Installing
 

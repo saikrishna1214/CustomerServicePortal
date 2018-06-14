@@ -5,13 +5,19 @@ Creates Accounts,contacts and ServiceRequests for a user. An employee will have 
 
 ### Prerequisites
 
-Install java and tomcat.
-make sure both versions are compaitable with each other. 
+1. Install java and tomcat. make sure both versions are compaitable with each other. 
 
 ```
 ex: Tomcat v9.0.8 is supported by java8 and later versions.
 ```
-you can those compaitable versions here [which version?](http://tomcat.apache.org/whichversion.html)
+you can see those compaitable versions here [which version?](http://tomcat.apache.org/whichversion.html)
+
+2.  create a hibernate configuration file and place all required properties in it. 
+
+...
+    see [hibernate.cfg.xml](https://github.com/saikrishna1214/CustomerServicePortal/blob/master/src/main/resources/hibernate.cfg.xml) for reference. Replace required propeties(ex: database name and password) and their values according to your database properties.
+...
+    replace  CustomerServicePortal/src/main/resources/hibernate.cfg.xml with newly created file.
 
 ### Installing java
 
@@ -24,27 +30,11 @@ replace 8 with newer versions.
 
 ### Installing Tomcat
 
-1. Download latest version of Apache tomcat [(sudo apt-get install oracle-java8-installer)]
+1. Download latest version of [Apache tomcat](http://tomcat.apache.org/)
 
-## Running the tests
+2. Unzip tomcat and install it.
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+3. you can start and stop the server from IDE like Eclipse or you can do it from terminal.
 
 ## Deployment
 
@@ -53,6 +43,10 @@ Add additional notes about how to deploy this on a live system
 ## Built With
 
 * [Maven](https://maven.apache.org/) - Dependency Management
+
+* Spring Core
+
+* Hibernate
 
 ## Contributing
 

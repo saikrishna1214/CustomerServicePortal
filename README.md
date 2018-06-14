@@ -71,9 +71,6 @@ Download and Install Mysql from [here](https://www.mysql.com/downloads).
 * Spring Core
 
 * Hibernate
- 
-## Authors
-
 
 ## License
 

@@ -2,16 +2,16 @@
 
 Creates Accounts,contacts and ServiceRequests for a user. An employee will have details of all customers and from the details employee can create or update the service requests. one user(Customer) can have many contacts, so employee have to create a new contact if user have new contact details.
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Install java and tomcat.
+make sure both versions are compaitable with each other. 
 
 ```
-Give examples
+ex: Tomcat v9.0.8 is supported by java8 and later versions.
+
+you can those compaitable versions here [which version?](http://tomcat.apache.org/whichversion.html)
 ```
 
 ### Installing

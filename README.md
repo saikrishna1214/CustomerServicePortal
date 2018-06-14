@@ -13,23 +13,18 @@ ex: Tomcat v9.0.8 is supported by java8 and later versions.
 ```
 you can those compaitable versions here [which version?](http://tomcat.apache.org/whichversion.html)
 
-### Installing
+### Installing java
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Run this Command in your terminal to install java.
 
 ```
-Give the example
+$ sudo apt-get install oracle-java8-installer
 ```
+replace 8 with newer versions.
 
-And repeat
+### Installing Tomcat
 
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+1. Download latest version of Apache tomcat [(sudo apt-get install oracle-java8-installer)]
 
 ## Running the tests
 

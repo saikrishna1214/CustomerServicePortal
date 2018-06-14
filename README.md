@@ -50,7 +50,7 @@ Download and Install Mysql from [here](https://www.mysql.com/downloads).
 
 * Upload the war file of the application in the specified location.
 
-* Open browser and Enter [http://localhost:8080]
+* Open browser and Enter [http://localhost:8080](http://localhost:8080)
 
 * Tomcat Home page will be displayed.
 
@@ -71,21 +71,13 @@ Download and Install Mysql from [here](https://www.mysql.com/downloads).
 * Spring Core
 
 * Hibernate
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
  
-
 ## Authors
 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License.
 
 
 

@@ -120,6 +120,7 @@ else{
 											<td>Last Updated Date</td>
 											<td>Description</td>
 											<td>Status</td>
+											<td>Updated By</td>
 										</tr>
 									</thead>
 									<%
@@ -131,6 +132,7 @@ else{
 											<td><%=activity.getUpdateddate()%></td>
 											<td><%=activity.getUpdatedDescription()%></td>
 											<td><%=activity.getStatusUpdate()%></td>
+											<td><%=activity.getUpdatedemployee() %></td>
 										</tr>
 									</tbody>
 									<%

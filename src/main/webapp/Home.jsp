@@ -8,6 +8,7 @@
 	{
 		response.sendRedirect("login.jsp");
 	}
+else{
 	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -113,6 +114,7 @@
 												<td>Last Updated Date</td>
 												<td>Description</td>
 												<td>Status</td>
+												<td>Updated By</td>
 											</tr>
 										</thead>
 										<%
@@ -124,6 +126,7 @@
 												<td><%=activity.getUpdateddate()%></td>
 												<td><%=activity.getUpdatedDescription()%></td>
 												<td><%=activity.getStatusUpdate()%></td>
+												<td><%=activity.getUpdatedemployee() %></td>
 											</tr>
 										</tbody>
 										<%
@@ -158,3 +161,4 @@
 	</script>
 </body>
 </html>
+<%}%>

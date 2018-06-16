@@ -283,10 +283,11 @@
 										</div>
 									</div>
 								</div>
-								<div style="float: right;" class="btn-group">
-									<button name="button" value="1" type="submit"
-										class="btn btn-success">Generate Issue</button>
-				
+								<div style="float: right;" class="form-group row">
+									<input name="button1" value="Generate Issue" type="submit"
+										class="btn btn-success">
+									<input name="button1" value="Add New Contact" type="submit"
+										class="btn btn-primary">
 								</div>
 							</form>
 						</div>

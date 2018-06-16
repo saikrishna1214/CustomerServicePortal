@@ -27,8 +27,6 @@ public class CreateContacts extends HttpServlet {
 		ApplicationContext context = new ClassPathXmlApplicationContext("Spring.xml");
 		ViewAllCustomers allcustomers = (ViewAllCustomers) context.getBean("viewallcustomers");
 		ContactImpl contacts = (ContactImpl) context.getBean("createcontact");
-		/*PrintWriter out = response.getWriter();
-		out.println(request.getParameter("accountid"));*/
 		int accountid = Integer.parseInt(request.getParameter("accountid"));
 		String name = request.getParameter("firstname")+" "+request.getParameter("lastname");
 		Account account =  allcustomers.GetAccount(accountid);
@@ -40,10 +38,17 @@ public class CreateContacts extends HttpServlet {
 		int phone = Integer.parseInt((String) request.getParameter("phone"));
 		Contact contact =  contacts.createContact(phone, address1, address2, city, state, zipcode, account);
 		int contactid = contact.getContactid();
+		if(request.getParameter("button1").equals("Generate Issue"))
+		{
 		request.getSession().setAttribute("Name", name);
 		request.getSession().setAttribute("accountId",accountid);
 		request.getSession().setAttribute("contactId",contactid);
 		response.sendRedirect("CreateServiceRequest.jsp");
+		}
+		else
+		{
+		response.sendRedirect("ViewCustomers");
+		}
 	}
 
 }

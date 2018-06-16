@@ -31,10 +31,10 @@ public class ServiceRequest extends HttpServlet {
 		ApplicationContext context = new ClassPathXmlApplicationContext("Spring.xml");
 		ServiceRequestImpl getservice = (ServiceRequestImpl) context.getBean("servicerequest");
 		ActivityServiceImpl activityServiceImpl = (ActivityServiceImpl) context.getBean("activity");
-		String employee = (String) request.getSession().getAttribute("email");
+		String employee_email = (String) request.getSession().getAttribute("email");
 		org.imaginea.requesttracking.entity.ServiceRequest serviceRequest = getservice.createServiceRequest(accountid,
-				contactid, title, description, employee);
-		activityServiceImpl.createActivity(serviceRequest);
+				contactid, title, description, employee_email);
+		activityServiceImpl.createActivity(serviceRequest,employee_email);
 		/*HomepageDetailsImpl gethomepage = (HomepageDetailsImpl) context.getBean("homepagedetails");
 		gethomepage.setServiceRequests(employee, serviceRequest);*/
 		response.sendRedirect("ViewServiceRequests");

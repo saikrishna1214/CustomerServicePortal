@@ -16,15 +16,16 @@ public class ActivityServiceImpl implements ActivityService {
 	@Autowired
 	private ActivityDaoImpl activityDao;
 	
-	public void createActivity(ServiceRequest serviceRequest) {
+	public void createActivity(ServiceRequest serviceRequest,String employeemail) {
 
 		Activities activity = new Activities();
 		activity.setServicerequest(serviceRequest);
 		activity.setUpdatedDescription(serviceRequest.getDescription());
 		activity.setStatusUpdate(serviceRequest.getStatus());
 		activity.setUpdateddate(java.time.LocalDate.now());
-		serviceRequest.getActivity().add(activity);
+		activity.setUpdatedemployee(employeemail);
 		activityDao.createActivityDao(activity);
+		serviceRequest.getActivity().add(activity);
 	}
 
 }

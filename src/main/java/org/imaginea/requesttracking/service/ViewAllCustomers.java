@@ -10,5 +10,5 @@ public interface ViewAllCustomers {
 
 	public Account CreateAccount(String emailid, String gender ,String lastname,String firstname);
 	
-	public Account CreateAccount(int accountid);
+	public Account GetAccount(int accountid);
 }

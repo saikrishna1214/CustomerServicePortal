@@ -13,8 +13,11 @@ public class AuthenticateLoginImpl implements AuthenticateLogin {
 	public boolean loginAuthentiction(String user, String password) {
 		
 		Login login = logindao.getLogin(user);
-		if(login.getPassword().equals(password))
+		if(login!=null)
+		{
+			if(login.getPassword().equals(password))
 		return true;
+		}
 		return false;
 	}
 

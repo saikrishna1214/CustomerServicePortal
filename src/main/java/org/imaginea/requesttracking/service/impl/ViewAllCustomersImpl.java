@@ -26,7 +26,7 @@ public class ViewAllCustomersImpl implements ViewAllCustomers {
 		return account;
 	}
 	
-	public Account CreateAccount(int accountid) {
+	public Account GetAccount(int accountid) {
 		return accountdao.getAccount(accountid);
 	}
 

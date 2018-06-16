@@ -22,7 +22,7 @@ public class ContactImpl implements ContactService {
 		contact.setAddress1(address1);
 		contact.setAddress2(address2);
 		contact.setCity(city);
-		contact.setState(state);
+		contact.setState(state);               
 		contact.setZipcode(Zipcode);
 		contact.setAccount(account);
 		account.getContact().add(contact);

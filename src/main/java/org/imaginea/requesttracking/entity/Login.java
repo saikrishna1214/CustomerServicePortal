@@ -32,15 +32,4 @@ public class Login {
 		this.password = password;
 	}
 	
-	@OneToMany(mappedBy="employee")
-	private Collection<ServiceRequest> servicerequest = new ArrayList<ServiceRequest>();
-
-	public Collection<ServiceRequest> getServicerequest() {
-		return servicerequest;
-	}
-
-	public void setServicerequest(Collection<ServiceRequest> servicerequest) {
-		this.servicerequest = servicerequest;
-	}
-
 }

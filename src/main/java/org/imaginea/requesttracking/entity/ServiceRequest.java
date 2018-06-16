@@ -1,7 +1,6 @@
 
 package org.imaginea.requesttracking.entity;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -44,7 +43,7 @@ public class ServiceRequest {
 	private String status;
 
 	@Column(name = "OPENDATE")
-	private LocalDate opendate;
+	private Date opendate;
 
 	@Column(name = "CLOSEDATE")
 	private Date closedate;
@@ -199,37 +198,28 @@ public class ServiceRequest {
 	 * 
 	 * @return opendate of Date type.
 	 */
-	public LocalDate getOpendate() {
-		return opendate;
-	}
-
-	/**
-	 * sets open date of present Service Request object
-	 * 
-	 * @param localDate
-	 *            contains Service number of Date type.
-	 */
-	public void setOpendate(LocalDate localDate) {
-		this.opendate = localDate;
-	}
+	
 
 	/**
 	 * gives close date of present service request
 	 * 
 	 * @return close date of Date type.
 	 */
-	public Date getClosedateE() {
+
+	public Date getOpendate() {
+		return opendate;
+	}
+
+	public void setOpendate(Date opendate) {
+		this.opendate = opendate;
+	}
+
+	public Date getClosedate() {
 		return closedate;
 	}
 
-	/**
-	 * sets close date for present Service Request object
-	 * 
-	 * @param closedate
-	 *            contains Service number of Date type.
-	 */
-	public void setClosedateE(Date closedateE) {
-		this.closedate = closedateE;
+	public void setClosedate(Date closedate) {
+		this.closedate = closedate;
 	}
 
 	/**

@@ -68,9 +68,11 @@ Download and Install Mysql from [here](https://www.mysql.com/downloads).
 
 * [Maven](https://maven.apache.org/) - Dependency Management
 
-* Spring Core
+* Spring Core.
 
-* Hibernate
+* Hibernate.
+
+* BootStrap, JavaScript, Jquery.
 
 ## License
 
